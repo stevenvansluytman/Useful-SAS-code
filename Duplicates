@@ -1,0 +1,8 @@
+Check for duplicate records.
+/*This step will create the variable "count" to count the occurrences of the identifier*/
+
+PROC SQL; 
+CREATE TABLE output (COMPRESS=YES) AS SELECT *, COUNT(1) AS count 
+FROM input (KEEP= variables identifier) 
+GROUP BY identifier; 
+QUIT;
