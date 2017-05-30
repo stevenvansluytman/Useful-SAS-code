@@ -1,9 +1,0 @@
-/* Input set must be sorted by the identifier variable */
-PROC SORT DATA= input; BY identifier; RUN;
-
-/* Output set will only have records where the identifier was not unique.  If it is empty, there were no duplicates */
-DATA output; 
-SET input; 
-BY identifier;
-IF NOT (FIRST.identifier & LAST.identifier); 
-run;
