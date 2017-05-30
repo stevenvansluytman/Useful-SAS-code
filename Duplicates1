@@ -6,3 +6,6 @@ CREATE TABLE output (COMPRESS=YES) AS SELECT *, COUNT(1) AS count
 FROM input (KEEP= variables identifier) 
 GROUP BY identifier; 
 QUIT;
+
+/*You can use PROC FREQ to see how many times the identifier was duplicated*/
+PROC FREQ DATA= output; TABLES count; RUN;
